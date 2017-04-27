@@ -276,9 +276,9 @@
 <li><p><strong>Usage:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.keyCodes = &#123;</div><div class="line">  <span class="attr">v</span>: <span class="number">86</span>,</div><div class="line">  <span class="attr">f1</span>: <span class="number">112</span>,</div><div class="line">  <span class="comment">// camelCase won`t work</span></div><div class="line">  mediaPlayPause: <span class="number">179</span>,</div><div class="line">  <span class="comment">// instead you can use kebab-case with double quotation marks</span></div><div class="line">  <span class="string">"media-play-pause"</span> : <span class="number">179</span>,</div><div class="line">  <span class="attr">up</span>: [<span class="number">38</span>, <span class="number">87</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> @<span class="attr">keyup.media-play-pause</span>=<span class="string">"method"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Define custom key alias(es) for v-on.</p>
 </li>
 </ul>
-<p>  Define custom key alias(es) for v-on.</p>
 <h3 id="performance"><a href="#performance" class="headerlink" title="performance"></a>performance</h3><blockquote>
 <p>New in 2.2.0</p>
 </blockquote>
@@ -463,7 +463,7 @@
 </ul>
 </li>
 <li><p><strong>Usage:</strong></p>
-<p>Compiles a template string into a render function. <strong>Only available in the standalone build.</strong></p>
+<p>Compiles a template string into a render function. <strong>Only available in the full build.</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> res = Vue.compile(<span class="string">'&lt;div&gt;&lt;span&gt;&#123;&#123; msg &#125;&#125;&lt;/span&gt;&lt;/div&gt;'</span>)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">msg</span>: <span class="string">'hello'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">render</span>: res.render,</div><div class="line">  <span class="attr">staticRenderFns</span>: res.staticRenderFns</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>See also:</strong> <a href="../guide/render-function.html">Render Functions</a></p>
@@ -863,7 +863,7 @@
 <li><p><strong>default:</strong> <code>["{{", "}}"]</code></p>
 </li>
 <li><p><strong>Details:</strong></p>
-<p>Change the plain text interpolation delimiters. <strong>This option is only available in the standalone build.</strong></p>
+<p>Change the plain text interpolation delimiters. <strong>This option is only available in the full build.</strong></p>
 </li>
 <li><p><strong>Example:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">delimiters</span>: [<span class="string">'$&#123;'</span>, <span class="string">'&#125;'</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// Delimiters changed to ES6 template string style</span></div></pre></td></tr></table></figure>
@@ -1338,9 +1338,10 @@
 <li><code>.{keyCode | keyAlias}</code> - only trigger handler on certain keys.</li>
 <li><code>.native</code> - listen for a native event on the root element of component.</li>
 <li><code>.once</code> - trigger handler at most once.</li>
-<li><code>.left</code> - (2.2.0) only trigger handler for left button mouse events.</li>
-<li><code>.right</code> - (2.2.0) only trigger handler for right button mouse events.</li>
-<li><code>.middle</code> - (2.2.0) only trigger handler for middle button mouse events.</li>
+<li><code>.left</code> - (2.2.0+) only trigger handler for left button mouse events.</li>
+<li><code>.right</code> - (2.2.0+) only trigger handler for right button mouse events.</li>
+<li><code>.middle</code> - (2.2.0+) only trigger handler for middle button mouse events.</li>
+<li><code>.passive</code> - (2.3.0+) attaches a DOM event with <code>{ passive: true }</code>.</li>
 </ul>
 </li>
 <li><p><strong>Usage:</strong></p>
@@ -1370,7 +1371,8 @@
 <li><p><strong>Modifiers:</strong></p>
 <ul>
 <li><code>.prop</code> - Bind as a DOM property instead of an attribute. (<a href="http://stackoverflow.com/questions/6003819/properties-and-attributes-in-html#answer-6004028" target="_blank" rel="external">what’s the difference?</a>)</li>
-<li><code>.camel</code> - transform the kebab-case attribute name into camelCase. (supported since 2.1.0)</li>
+<li><code>.camel</code> - (2.1.0+) transform the kebab-case attribute name into camelCase.</li>
+<li><code>.sync</code> - (2.3.0+) a syntax sugar that expands into a <code>v-on</code> handler for updating the bound value.</li>
 </ul>
 </li>
 <li><p><strong>Usage:</strong></p>
@@ -1389,6 +1391,7 @@
 <ul>
 <li><a href="../guide/class-and-style.html">Class and Style Bindings</a></li>
 <li><a href="../guide/components.html#Props">Components - Component Props</a></li>
+<li><a href="../guide/components.html#sync-Modifier">Components - <code>.sync</code> Modifier</a></li>
 </ul>
 </li>
 </ul>
