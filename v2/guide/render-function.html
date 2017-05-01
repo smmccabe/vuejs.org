@@ -182,7 +182,7 @@
             Guide
             
                 <select class="version-select">
-                    <option value="SELF" selected>2.0</option>
+                    <option value="SELF" selected>2.x</option>
                     <option value="v1">1.0</option>
                     <option value="012">0.12</option>
                     <option value="011">0.11</option>
@@ -696,7 +696,7 @@
 <li><code>data</code>: The entire data object passed to the component</li>
 <li><code>parent</code>: A reference to the parent component</li>
 <li><code>listeners</code>: (2.3.0+) An object containing parent-registered event listeners. This is simply an alias to <code>data.on</code></li>
-<li><code>injections</code>: (2.3.0+) if using the <a href="https://vuejs.org/v2/api/#provide-inject"><code>inject</code></a> option, this will contain resolved injections.</li>
+<li><code>injections</code>: (2.3.0+) if using the <a href="../api/#provide-inject"><code>inject</code></a> option, this will contain resolved injections.</li>
 </ul>
 <p>After adding <code>functional: true</code>, updating the render function of our anchored heading component would simply require adding the <code>context</code> argument, updating <code>this.$slots.default</code> to <code>context.children</code>, then updating <code>this.level</code> to <code>context.props.level</code>.</p>
 <p>Since functional components are just functions, they’re much cheaper to render. However, this also mean that functional components don’t show up in VueJS Chrome dev tools component tree.</p>
