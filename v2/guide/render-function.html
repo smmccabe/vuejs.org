@@ -635,7 +635,7 @@
 <h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a><code>v-model</code></h3><p>There is no direct <code>v-model</code> counterpart in render functions - you will have to implement the logic yourself:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span></div><div class="line">  <span class="keyword">return</span> createElement(<span class="string">'input'</span>, &#123;</div><div class="line">    <span class="attr">domProps</span>: &#123;</div><div class="line">      <span class="attr">value</span>: self.value</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">on</span>: &#123;</div><div class="line">      <span class="attr">input</span>: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">        self.value = event.target.value</div><div class="line">        self.$emit(<span class="string">'input'</span>, event.target.value)</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>This is the cost of going lower-level, but it also gives you much more control over the interaction details compared to <code>v-model</code>.</p>
-<h3 id="Event-amp-Key-Modifiers"><a href="#Event-amp-Key-Modifiers" class="headerlink" title="Event &amp; Key Modifiers"></a>Event &amp; Key Modifiers</h3><p>For the <code>.capture</code> and <code>.once</code> event modifiers, Vue offers prefixes that can be used with <code>on</code>:</p>
+<h3 id="Event-amp-Key-Modifiers"><a href="#Event-amp-Key-Modifiers" class="headerlink" title="Event &amp; Key Modifiers"></a>Event &amp; Key Modifiers</h3><p>For the <code>.passive</code>, <code>.capture</code> and <code>.once</code> event modifiers, Vue offers prefixes that can be used with <code>on</code>:</p>
 <table>
 <thead>
 <tr>
@@ -644,6 +644,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><code>.passive</code></td>
+<td><code>&amp;</code></td>
+</tr>
 <tr>
 <td><code>.capture</code></td>
 <td><code>!</code></td>
